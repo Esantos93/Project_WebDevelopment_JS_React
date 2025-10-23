@@ -1,0 +1,85 @@
+name: Run Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tw1-tests:
+    name: TW1 Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js 22
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm install
+
+    - name: Update Iprog-test
+      run: npm update @iprog/test
+    
+    - name: Run TW1 Tests
+      run: |
+        OUTPUT=$(npm run test_github tw1)
+        echo "$OUTPUT"
+        
+  tw2-tests:
+    name: TW2 Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js 22
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm install
+
+    - name: Update Iprog-test
+      run: npm update @iprog/test
+    
+    - name: Run TW2 Tests
+      run: |
+        OUTPUT=$(npm run test_github tw1 tw2 )
+        echo "$OUTPUT"
+        
+
+  tw3-tests:
+    name: TW3 Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js 22
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm install
+
+    - name: Update Iprog-test
+      run: npm update @iprog/test
+    
+    - name: Run TW3 Tests
+      run: |
+        OUTPUT=$(npm run test_github)
+        echo "$OUTPUT"
+        
+
+ 
