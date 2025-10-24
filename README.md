@@ -1,16 +1,13 @@
-# npm-tutorial
+# Interaction programming tutorial
 tutorial version 6
 
 1. Install Node.js version 22 or 23 using nvm (Node Version Manager)
 
 If you don't have nvm installed, install it first by following the instructions at: https://www.nvmnode.com/guide/download.html
 
-Then restart your terminal or run:
-```
-source ~/.zshrc
-```
+Then start a new terminal window.
 
-Install and use Node.js 22 (Node.js 23 works as well):
+Install and use Node.js version 22 (Node.js 23 works as well):
 ```
 nvm install 22
 nvm use 22
@@ -22,51 +19,46 @@ npm install
 ```
 
 
-3. Test the project using the command line below:
+3. Run the Unit Tests" which check your lab code:
 ```
 npm run test
 ```
-
-You can also run tests for a specific tutorial week. For example, to run the tests for tutorial week 1, use the following command:
+Press P to focus on tests with certain name patterns. You can also indicate a pattern in the command line:
 ```
 npm run test tw1
 ```
+You can also use a "vitest plugin" in Visual Studio Code to see test status in a graphical user interface rather than command line.
 
-This command runs only the tests associated with tw1, allowing you to focus on that week's content.
+/!\ Changing code may break earlier tests. Make sure to often run all tests!
 
-/!\ All unit tests must be ran after every change, because changing code may break earlier test
-
-
-4. To start your development server
+4. To test your app User Interface, start your development server:
 ```
 npm run dev
 ```
 
-In case of problems with npm, see (5) Docker below
-
-
-
 5. Make sure that your function names and parameter names follow the **obligatory** [lab coding conventions](https://docs.google.com/presentation/d/1CtxiAG9mJ6kslSl6psBBlVDafFD4b2Rh2G7ft1GQ08o/edit#slide=id.g17644a78da5_0_174)
+
+6. To update to the most recent Unit Tests:
+```
+npm update @iprog/test
+```
 
 ## Installation problems?
 File [an issue](https://gits-15.sys.kth.se/iprog/issues).
-In case you have problems with node, npm, webpack, you can use Docker to make a clean little "machine"
+In case you have problems with the node.js compatibility on your OS you can use Docker to make a clean little "machine"
 
 * Docker: https://docs.docker.com/get-docker/
 * Docker-Compose: https://docs.docker.com/compose/install/
 
-When you want to run the development server:
+Start the machine like so:
 ```
 docker-compose up
 ```
 (see the file `docker-compose.yml`) 
 
-Note that running this command for the first time might take some time, since we have to download the image and install all the dependencies.
+Running this command for the first time might take some time.
 
-6. To update to the most recent tests:
-```
-npm update @iprog/test
-```
+
 
 
 
