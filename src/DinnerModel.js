@@ -9,16 +9,22 @@ export const model = {
 
     setCurrentDishId(dishId){
         // this.someProperty= someValue
+        this.currentDishId=dishId
     },
     
     setNumberOfGuests(number){
-
+        if (number > 0 && Number.isInteger(number))
+        {
+            this.numberOfGuests=number
+        } else{
+            throw new Error ("number of guests not a positive integer")
+        }
     },
     
     addToMenu(dishToAdd){
         // array spread syntax exercise
         // It sets this.dishes to a new array [   ] where we spread (...) the elements of the existing this.dishes
-        this.dishes= [...this.dishes, /* replace this comment */];
+        this.dishes= [...this.dishes, dishToAdd];
     },
 
     // filter callback exercise
