@@ -30,9 +30,9 @@ export const model = {
     // filter callback exercise
     removeFromMenu(dishToRemove){
         function shouldWeKeepDishCB(dish){
-            
+            return dish.id !== dishToRemove.id
         }
-        this.dishes= this.dishes.filter(/* pass the callback */);
+        this.dishes= this.dishes.filter(shouldWeKeepDishCB);
     },
     
  

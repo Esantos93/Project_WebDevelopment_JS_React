@@ -1,17 +1,34 @@
 /* uncomment the export below to enable the 1.1.2 test suite! */
-/* export */ function compareIngredientsCB(ingredientA, ingredientB){
-    return // TODO
+ export function compareIngredientsCB(ingredientA, ingredientB){
+    if (ingredientA.aisle<ingredientB.aisle)
+        {return -1}
+    if (ingredientA.aisle>ingredientB.aisle)
+        {return 1}
+    if (ingredientA.name<ingredientB.name)
+        {return -1}
+    if (ingredientA.name>ingredientB.name)
+        {return 1}
+    else {
+        return 0
+    }
 }
 
 export function sortIngredients(ingredients){
-    return // TODO
+    return [...ingredients].sort(compareIngredientsCB)
 }
 
-/* export */ function isKnownTypeCB(type){
+export function isKnownTypeCB(type){
+    return (type === "starter" || type === "main course" || type === "dessert");
     // don't forget the return keyword (goes for all functions below)
 }
 
 export function dishType(dish){
+    //console.log('dishType input:', dish, 'typeof', typeof dish.dishTypes);
+    //console.log(dish.dishTypes.filter(isKnownTypeCB))[0];
+    if ((dish.dishTypes === undefined || dish.dishTypes.filter(isKnownTypeCB)[0] === undefined)){
+        return ""
+    }
+    return result
 }
 
 /* export */ function compareDishesCB(dishA, dishB){
