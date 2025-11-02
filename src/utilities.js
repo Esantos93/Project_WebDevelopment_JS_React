@@ -28,18 +28,35 @@ export function dishType(dish){
     if ((dish.dishTypes === undefined || dish.dishTypes.filter(isKnownTypeCB)[0] === undefined)){
         return ""
     }
-    return result
+    return dish.dishTypes.filter(isKnownTypeCB)[0]
 }
 
-/* export */ function compareDishesCB(dishA, dishB){
-}
+export function compareDishesCB(dishA, dishB){
+    // Map dish types (as returned by dishType()) to numeric order so we can return a-b
+    const order = {
+        "": 0,
+        "starter": 1,
+        "main course": 2,
+        "dessert": 3
+    };
 
+    const typeA = order[dishType(dishA)];
+    const typeB = order[dishType(dishB)];
+
+    return typeA - typeB;
+}
 
 export function sortDishes(dishes){
+    return [...dishes].sort(compareDishesCB)
 }
 
-/*export */ function menuPrice(dishesArray){
- 
+function sumUpPricesCB (total, dish){
+    //console.log('current dish:', dish);
+    return total + dish.pricePerServing
+}
+
+export function menuPrice(dishesArray){
+    return dishesArray.reduce(sumUpPricesCB,0)
 }
 
 /* 
@@ -50,7 +67,7 @@ export function sortDishes(dishes){
    
    As this is not an algorithm course, the function is mostly written but you have 2 callback passing TODOs.
 */
-function shoppingList(dishes){
+export function shoppingList(dishes){
     const result={}; // object used as mapping between ingredient ID and ingredient object
 
     // we define the callback inside the function, though this is not strictly needed in this case. But see below.
@@ -74,15 +91,15 @@ function shoppingList(dishes){
             // 2)    {...ingredient } creates a *copy* of the ingredient (object spread syntax)
             // we duplicate it because we will change the object below
         } else {
-            // since result[ingredient.id] is not defined, it means that the ingredient has been encountered before.
+            // since result[ingredient.id] is defined, it means that the ingredient has been encountered before.
             // so we add up the amount:
             result[ingredient.id].amount +=  ingredient.amount;
         }
     }
 
-    const arrayOfIngredientArrays= dishes.map(/*TODO pass the callback that transforms a dish to its ingredients */);
+    const arrayOfIngredientArrays= dishes.map(keepJustIngredientsCB);
     const allIngredients= arrayOfIngredientArrays.flat();    
-    allIngredients.forEach(/* TODO: pass the callback that treats an ingredient */);
+    allIngredients.forEach(ingredientCB);
 
     // Note: the 3 lines above can be written as a function chain:
     // dishes.map(callback1).flat().forEach(callback2);
