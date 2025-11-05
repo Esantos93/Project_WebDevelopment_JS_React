@@ -1,4 +1,4 @@
-/* uncomment the export below to enable the 1.1.2 test suite! */
+
  export function compareIngredientsCB(ingredientA, ingredientB){
     if (ingredientA.aisle<ingredientB.aisle)
         {return -1}
@@ -13,6 +13,7 @@
     }
 }
 
+// This function returns the ingredients ordered by Aisle and then by Name
 export function sortIngredients(ingredients){
     return [...ingredients].sort(compareIngredientsCB)
 }
@@ -22,6 +23,7 @@ export function isKnownTypeCB(type){
     // don't forget the return keyword (goes for all functions below)
 }
 
+// This function returns only the first dish type of pur known dish types: Starter, Main Course or Dessert
 export function dishType(dish){
     //console.log('dishType input:', dish, 'typeof', typeof dish.dishTypes);
     //console.log(dish.dishTypes.filter(isKnownTypeCB))[0];
@@ -46,7 +48,8 @@ export function compareDishesCB(dishA, dishB){
     return typeA - typeB;
 }
 
-export function sortDishes(dishes){
+// This function returns the dishes ordered like: 1º.Starter, 2º.Main Course and 3º.Dessert
+export function sortDishes(dishes){ 
     return [...dishes].sort(compareDishesCB)
 }
 
@@ -97,7 +100,7 @@ export function shoppingList(dishes){
         }
     }
 
-    const arrayOfIngredientArrays= dishes.map(keepJustIngredientsCB);
+    const arrayOfIngredientArrays= dishes.map(keepJustIngredientsCB); // This line removes everything from each dish array except the ingredients
     const allIngredients= arrayOfIngredientArrays.flat();    
     allIngredients.forEach(ingredientCB);
 

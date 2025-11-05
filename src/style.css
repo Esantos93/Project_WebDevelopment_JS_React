@@ -2,3 +2,7 @@
 .debug {
     border-style:solid;
 }
+
+.numbersRightAlign{
+    text-align:right;
+}

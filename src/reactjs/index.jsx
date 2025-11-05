@@ -4,8 +4,8 @@ window.React= {createElement:createElement, Fragment:Fragment}; // needed in the
 import { createRoot } from "react-dom/client";
 
 import {ReactRoot} from "./ReactRoot.jsx" // We import the root component
-const rootJSX = <ReactRoot model={reactiveModel}/>
 import {reactiveModel} from "/src/mobxReactiveModel.js" // We import the reactive model
+const rootJSX = <ReactRoot model={reactiveModel}/>
 
 // mount the app in the browser page. Test at http://localhost:8080/react.html
 // and render the reactive model
