@@ -1,13 +1,16 @@
 import "/src/teacherFetch.js"; // protection against fetch() in infinite loops
-import { observable, configure } from "mobx";
+import { observable, configure, reaction } from "mobx";
 configure({ enforceActions: "never", });  // we don't use Mobx actions in the Lab
 
 import {model} from "./DinnerModel.js" // We import the DinnnerModel
 export const reactiveModel= observable(model) //"make a reactive object out of the model exported from DinnerModel";
 
 // Initial search
-model.doSearch({})
+reactiveModel.doSearch({})
 
+// Reactive Object side effect exercise (TW 2.2.3)
+reaction(function relevantSelectionACB() { return reactiveModel.currentDishId; },
+        function sideEffectACB() { return reactiveModel.currentDishEffect(); })
 
 
 

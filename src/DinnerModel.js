@@ -3,7 +3,7 @@
    It is an abstract object, i.e. it knows nothing about graphics and interaction.
 */
 import {resolvePromise} from "./resolvePromise.js";
-import {searchDishes} from "./dishSource.js";
+import {searchDishes, getDishDetails} from "./dishSource.js";
 
 export const model = {  
     
@@ -14,6 +14,7 @@ export const model = {
     currentDishId: null,  // null means "intentionally empty"
     searchParams: {},
     searchResultsPromiseState: {},
+    currentDishPromiseState: {},
 
     /* METHODS of our model */
 
@@ -55,8 +56,15 @@ export const model = {
 
     doSearch(params){
         resolvePromise (searchDishes(params),this.searchResultsPromiseState)
-    }
+    },
     
+    currentDishEffect(){
+        if (this.currentDishId)
+            {resolvePromise (getDishDetails(this.currentDishId),this.currentDishPromiseState)}
+        if (!this.currentDishId)
+            {this.currentDishPromiseState = {}}
+    }
+
     // more methods will be added here, don't forget to separate them with comma!
 };
 
