@@ -18,6 +18,9 @@ reaction(function relevantSelectionACB() { return reactiveModel.currentDishId; }
 // making the reactive model available at the browser JavasScript Console
 window.myModel= reactiveModel;
 
+// To see the change from SuspenseView to DetailsView when the App reloads (TW2.3.1)
+myModel.currentDishId=715446 
+
 // making some example dishes available 
 import {dishesConst} from "/src/dishesConst.js";
 window.dishesConst= dishesConst;
