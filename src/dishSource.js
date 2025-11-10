@@ -31,7 +31,6 @@ export function searchDishes (searchParams) {
     return fetch(URL + "?" + URLsearchParams, searchOptions).then(gotResponseACB).then(extractResultsSearchDishesACB)
 }
 
-
 export function getMenuDetails (ids_array) {
     const endPoint = "/recipes/informationBulk"
     const URL = PROXY_URL + endPoint

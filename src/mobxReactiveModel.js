@@ -5,7 +5,8 @@ configure({ enforceActions: "never", });  // we don't use Mobx actions in the La
 import {model} from "./DinnerModel.js" // We import the DinnnerModel
 export const reactiveModel= observable(model) //"make a reactive object out of the model exported from DinnerModel";
 
-
+// Initial search
+model.doSearch({})
 
 
 
