@@ -10,7 +10,10 @@ const Search = observer(
         <div>
             <SearchFormView dishTypeOptions = {["starter","main course","dessert"]}
                             text = {props.model.searchParams.query}
-                            type = {props.model.searchParams.type}/>
+                            type = {props.model.searchParams.type}
+                            onInputChange = {console.log}
+                            onSelectChange = {console.log}
+                            onButtonClick = {console.log}/>
             {props.model.searchResultsPromiseState.data && <SearchResultsView searchResults = {props.model.searchResultsPromiseState.data}/> 
             || <SuspenseView promise = {props.model.searchResultsPromiseState.promise}
                             error = {props.model.searchResultsPromiseState.error}/>}
