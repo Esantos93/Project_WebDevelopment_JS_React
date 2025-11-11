@@ -14,7 +14,9 @@ const Search = observer(
                             onInputChange = {console.log}
                             onSelectChange = {console.log}
                             onButtonClick = {console.log}/>
-            {props.model.searchResultsPromiseState.data && <SearchResultsView searchResults = {props.model.searchResultsPromiseState.data}/> 
+            {props.model.searchResultsPromiseState.data 
+            && <SearchResultsView searchResults = {props.model.searchResultsPromiseState.data}
+                                                dishClick={console.log}/> 
             || <SuspenseView promise = {props.model.searchResultsPromiseState.promise}
                             error = {props.model.searchResultsPromiseState.error}/>}
         </div>

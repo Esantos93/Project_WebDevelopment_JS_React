@@ -6,3 +6,13 @@
 .numbersRightAlign{
     text-align:right;
 }
+
+.resultView{
+    text-align:center;
+    display:inline-block;
+    vertical-align: top;
+    width: 200px;
+    margin: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+}
