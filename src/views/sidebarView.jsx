@@ -19,7 +19,8 @@ export function SidebarView(props){
     }
 
     return (
-    <div>
+    <div className="sidebarView">
+        <h2>Sidebar</h2>
         <div style={{display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16}}>
             <button disabled={props.number<=1} onClick={buttonNegACB}>-</button>
             <div>{props.number}</div>

@@ -12,7 +12,7 @@ function ReactRoot(props){
                 <div>
                     <Summary model={props.model}/>
                     <Details model={props.model}/>
-                    <br/><Search model={props.model}/>
+                    <Search model={props.model}/>
                 </div>
             </div>
            );

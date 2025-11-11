@@ -26,6 +26,7 @@ const Details = observer(
         <DetailsView dishData = {props.model.currentDishPromiseState.data}
                         guests = {props.model.numberOfGuests}
                         isDishInMenu = {isDishMenu()}
+                        onButtonClick = {function(){console.log("Yes, the user wants to add!")}}  
                         /> 
         || <SuspenseView promise = {props.model.currentDishPromiseState.promise}
                             error = {props.model.currentDishPromiseState.error}

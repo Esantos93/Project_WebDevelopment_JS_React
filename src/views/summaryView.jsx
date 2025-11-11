@@ -7,14 +7,8 @@ export function SummaryView(props){
     return (
             <div className="debug">
 
-  
-
-
               {/* TW 1.2 note the syntax: {JS_expression_or_comment} */}
               Summary for <span title="nr guests">{props.people}</span> {props.people===1? 'person' : 'persons'}:
-
-
-
 
               {// TW 1.3: remove this line (and the TW1.3 one below) to uncomment
 

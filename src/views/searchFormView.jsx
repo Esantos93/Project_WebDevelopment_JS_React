@@ -8,15 +8,16 @@ export function SearchFormView(props) {
     function onClickButtonACB(natEvt) {props.onButtonClick()}
 
     return(
-        <div>
+        <div className="searchFormView">
+            <h2>Search Form</h2>
             <input value={props.text || ""} onChange={onChangeInputACB}/>
-            <select value ={props.type || ""} onChange={onChangeSelectACB}>
+            <select className="searchFormButton" value ={props.type || ""} onChange={onChangeSelectACB} style={{marginLeft: "30px"}}>
                 <option value="">Choose:</option>
                 {props.dishTypeOptions.map(function optionsCB(option) {
                     return <option key={option} value={option}>{option}</option>
                 })}
             </select>
-            <button title="search" value="Search!" onClick={onClickButtonACB}/>
+            <button className="searchFormButton" title="search" value="Search!" onClick={onClickButtonACB}>Search!</button>
         </div>
     )
 }
