@@ -15,7 +15,7 @@ export function resolvePromise(prms,promiseState){
             return; // Because the current promise is obsolete
         }
         promiseState.error = rejectedPromise
-        throw new Error ("The Promise was rejected")
+        console.log("The promise was rejected")
     }
 
     if (prms){
