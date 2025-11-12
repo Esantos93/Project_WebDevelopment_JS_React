@@ -5,10 +5,10 @@ export function SearchResultsView(props) {
 
     return(
         <div className="searchResultsView">
-        <h2>Search Results</h2>
+
             {props.searchResults.map(function resultsCB(result) {
 
-                    function dishClickACB(natEvt) {props.dishClick(result)}
+                    function dishClickACB() {props.dishClick(result)}
 
                     return(    
                     <span key={result.id} className="result" onClick={dishClickACB}>
