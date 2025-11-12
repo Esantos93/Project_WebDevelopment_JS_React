@@ -13,7 +13,7 @@ const Search = observer(
 
         // ACBS for Search Results View
         function resultsACB(selectedDish){
-            console.log("Custome event handled")
+            //console.log("Custom event handled")
             props.model.setCurrentDishId(selectedDish.id)
         }
 
@@ -26,8 +26,8 @@ const Search = observer(
                             onSelectChange = {searchTypeACB}
                             onButtonClick = {searchClickACB}/>
             {props.model.searchResultsPromiseState.data 
-            && <SearchResultsView searchResults = {props.model.searchResultsPromiseState.data}
-                                                dishClick={resultsACB}/> 
+            && <SearchResultsView searchResults = {props.model.searchResultsPromiseState.data || []}
+                                    dishClick={resultsACB}/> 
             || <SuspenseView promise = {props.model.searchResultsPromiseState.promise}
                             error = {props.model.searchResultsPromiseState.error}/>}
         </div>
