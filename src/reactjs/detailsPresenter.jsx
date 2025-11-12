@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
-import { DetailsView } from "/src/views/detailsView.jsx";
+import { DetailsView } from "/src/views/detailsView";
 import { SuspenseView } from "../views/suspenseView";
-import { model } from "../DinnerModel";
+//import { model } from "../DinnerModel";
 
 const Details = observer(
     function DetailsRender(props) {
@@ -12,7 +12,7 @@ const Details = observer(
             return <DetailsView/>;
         }*/
 
-        function isDishMenu() {
+        function isDishMenuACB() {
             function arrayCheckerCB(dish){
                return dish.id === props.model.currentDishId
             }
@@ -22,11 +22,17 @@ const Details = observer(
           return true
         }
 
+        function dishAddToMenuACB() {
+          //console.log("The custom event (Add to Menu) has been fired")
+          props.model.addToMenu(props.model.currentDishPromiseState.data)
+        }
+
         return props.model.currentDishPromiseState.data && 
         <DetailsView dishData = {props.model.currentDishPromiseState.data}
                         guests = {props.model.numberOfGuests}
-                        isDishInMenu = {isDishMenu()}
-                        onButtonClick = {function(){console.log("Yes, the user wants to add!")}}  
+                        isDishInMenu = {isDishMenuACB()}
+                        //onAddToMenuClick = {function(){console.log("Yes, the user wants to add!")}}
+                        onAddToMenuClick = {dishAddToMenuACB}                     
                         /> 
         || <SuspenseView promise = {props.model.currentDishPromiseState.promise}
                             error = {props.model.currentDishPromiseState.error}

@@ -3,15 +3,15 @@ import "/src/style.css"
 export function DetailsView(props) {
     //return <div>"__Details View__"</div>;
 
-    function onClickButtonACB(natEvt) {props.onButtonClick()}
+    function onAddToMenuClickACB(natEvt) {props.onAddToMenuClick();}
 
-    console.log("DEBUG - props.isDishInMenu:", props.isDishInMenu);
+    //console.log("DEBUG - props.isDishInMenu:", props.isDishInMenu);
 
     return(
         <div className="details-view">
             <h2>Dish Details</h2>
             <div>
-                <button className="detailsButton" name="add to menu" disabled={props.isDishInMenu} style={{marginLeft: "0px"}} onClick={onClickButtonACB}>add to menu</button>
+                <button className="detailsButton" name="add to menu" disabled={props.isDishInMenu} style={{marginLeft: "0px"}} onClick={onAddToMenuClickACB}>add to menu</button>
                 <button className="detailsButton" name="cancel">Cancel</button>
             </div>
             <span>{props.dishData.title}</span>
