@@ -18,7 +18,7 @@ reaction(function relevantSelectionACB() { return reactiveModel.currentDishId; }
         function sideEffectACB() { return reactiveModel.currentDishEffect(); })
 
 
-/*      PERSISTENCE of our reactive model       */
+/*      Applying PERSISTENCE to our reactive model       */
 
 connectToPersistence(reactiveModel, reaction)
 
