@@ -5,6 +5,8 @@ configure({ enforceActions: "never", });  // we don't use Mobx actions in the La
 import {model} from "./DinnerModel.js" // We import the DinnnerModel
 export const reactiveModel= observable(model) //"make a reactive object out of the model exported from DinnerModel";
 
+import { connectToPersistence } from "./firestoreModel.js";
+
 // Reactive Object side effect exercise (TW 2.2.3)
 reaction(function relevantSelectionACB() { return reactiveModel.currentDishId; },
         function sideEffectACB() { return reactiveModel.currentDishEffect(); })
