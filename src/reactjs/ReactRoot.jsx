@@ -4,8 +4,8 @@ import { Details } from "/src/reactjs/detailsPresenter";
 import { Search } from "/src/reactjs/searchPresenter";
 import { SuspenseView } from "/src/views/suspenseView";
 import { observer } from "mobx-react-lite";
+import {  createHashRouter,  RouterProvider} from "react-router-dom";
 import "/src/style.css"
-//import { searchDishes } from '/src/dishSource';
 
 const ReactRoot = observer(   //  will be added in week 3 --> ADDED
     function ReactRoot(props){
@@ -13,11 +13,7 @@ const ReactRoot = observer(   //  will be added in week 3 --> ADDED
         return (
                 <div className="flexParent">
                     <div><Sidebar model={props.model} /></div>
-                    <div>
-                        <Summary model={props.model}/>
-                        <Details model={props.model}/>
-                        <Search model={props.model}/>
-                    </div>
+                    <div><RouterProvider router={makeRouter(props.model)}/></div>
                 </div>
             );
         }
@@ -25,5 +21,27 @@ const ReactRoot = observer(   //  will be added in week 3 --> ADDED
                             error = {props.model.currentDishPromiseState?.error ?? null}/></div>)}
     }
 )
+
+export function makeRouter(model){
+    return createHashRouter([
+    {
+        path: "/",
+        element: <Search model={model}/>,
+    },
+    {
+        path: "/search",
+        element: <Search model={model}/>,
+    },
+    {
+        path: "/summary",
+        element: <Summary model={model}/>,
+    },
+    {   
+        path:"/details",
+        element: <Details model={model}/>
+    }
+
+])
+}
 
 export { ReactRoot }
