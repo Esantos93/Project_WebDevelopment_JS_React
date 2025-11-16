@@ -3,15 +3,15 @@ import {sortIngredients} from "/src/utilities.js";
 import "/src/style.css"
 
 /* Functional JSX component. Name must start with capital letter */
+
+    function backToSearchACB(natEvt) {window.location.hash="#/search"}
+
 export function SummaryView(props){
     return (
             <div className="debug">
-              <h2>Summary of Ingredients</h2>
-              {/* TW 1.2 note the syntax: {JS_expression_or_comment} */}
               Summary for <span title="nr guests">{props.people}</span> {props.people===1? 'person' : 'persons'}:
-
-              {// TW 1.3: remove this line (and the TW1.3 one below) to uncomment
-
+              <button className="navigationButton" title="backToSearch" onClick={backToSearchACB}>Back to Search</button>
+              {
               <table>
                 <thead>
                   <tr>
@@ -28,13 +28,7 @@ export function SummaryView(props){
                   }
                 </tbody>
               </table>
-
-              // TW 1.3: remove this line to uncomment
               } 
-
-
-
-
             </div>
     );
     

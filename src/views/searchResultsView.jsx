@@ -8,7 +8,10 @@ export function SearchResultsView(props) {
 
             {props.searchResults.map(function resultsCB(result) {
 
-                    function dishClickACB() {props.dishClick(result)}
+                    function dishClickACB() {
+                        props.dishClick(result)
+                        window.location.hash="#/details"
+                    }
 
                     return(    
                     <span key={result.id} className="result" onClick={dishClickACB}>

@@ -38,6 +38,14 @@
         gap: 15px; /* Espacio entre SearchForm y SearchResults */
     }
 }
+
+/*----- UTILITIES -----*/
+
+.navigationButton{
+    float: right;
+}
+
+
 /*----- CONTAINERS SECTION -----*/
 
 /*SIDEBAR SECTION*/
@@ -104,6 +112,11 @@
     padding: 15px;
     background-color: #fff3e0;
     display: block;
+}
+
+.formContainer {
+    display: flex;
+    align-items: center;
 }
 
 .searchFormButton{

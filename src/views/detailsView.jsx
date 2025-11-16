@@ -3,7 +3,11 @@ import "/src/style.css"
 export function DetailsView(props) {
     //return <div>"__Details View__"</div>;
 
-    function onAddToMenuClickACB(natEvt) {props.onAddToMenuClick();}
+    function onAddToMenuClickACB(natEvt) {
+        props.onAddToMenuClick()
+        window.location.hash="#/search"
+    }
+    function toSearchACB(natEvt) {window.location.hash="#/search"}
 
     //console.log("DEBUG - props.isDishInMenu:", props.isDishInMenu);
 
@@ -11,8 +15,8 @@ export function DetailsView(props) {
         <div className="detailsView">
             <h2>Dish Details</h2>
             <div>
-                <button className="detailsButton" name="add to menu" disabled={props.isDishInMenu} style={{marginLeft: "0px"}} onClick={onAddToMenuClickACB}>add to menu</button>
-                <button className="detailsButton" name="cancel">Cancel</button>
+                <button className="detailsButton" name="add to menu" disabled={props.isDishInMenu} style={{marginLeft: "0px"}} onClick={onAddToMenuClickACB}>Add to menu</button>
+                <button className="detailsButton" name="cancel" onClick={toSearchACB}>Cancel</button>
             </div>
             <span>{props.dishData.title}</span>
             <div className="details-container">
