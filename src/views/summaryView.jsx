@@ -6,7 +6,7 @@ import "/src/style.css"
 export function SummaryView(props){
     return (
             <div className="debug">
-
+              <h2>Summary of Ingredients</h2>
               {/* TW 1.2 note the syntax: {JS_expression_or_comment} */}
               Summary for <span title="nr guests">{props.people}</span> {props.people===1? 'person' : 'persons'}:
 

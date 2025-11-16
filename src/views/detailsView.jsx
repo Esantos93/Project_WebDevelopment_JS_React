@@ -8,7 +8,7 @@ export function DetailsView(props) {
     //console.log("DEBUG - props.isDishInMenu:", props.isDishInMenu);
 
     return(
-        <div className="details-view">
+        <div className="detailsView">
             <h2>Dish Details</h2>
             <div>
                 <button className="detailsButton" name="add to menu" disabled={props.isDishInMenu} style={{marginLeft: "0px"}} onClick={onAddToMenuClickACB}>add to menu</button>

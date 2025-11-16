@@ -2,6 +2,7 @@ import { observer } from "mobx-react-lite";
 import { SuspenseView } from "/src/views/suspenseView.jsx";
 import {SearchFormView} from "/src/views/searchFormView.jsx"
 import {SearchResultsView} from "/src/views/searchResultsView.jsx"
+import "/src/style.css"
 
 const Search = observer(
     function SearchRender(props) {
@@ -18,7 +19,7 @@ const Search = observer(
         }
 
         return (
-        <div>
+        <div className="searchContainer">
             <SearchFormView dishTypeOptions = {["starter","main course","dessert"]}
                             text = {props.model.searchParams.query}
                             type = {props.model.searchParams.type}

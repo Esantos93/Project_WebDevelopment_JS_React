@@ -4,13 +4,14 @@ import { Details } from "/src/reactjs/detailsPresenter";
 import { Search } from "/src/reactjs/searchPresenter";
 import { SuspenseView } from "/src/views/suspenseView";
 import { observer } from "mobx-react-lite";
+import "/src/style.css"
 //import { searchDishes } from '/src/dishSource';
 
 const ReactRoot = observer(   //  will be added in week 3 --> ADDED
     function ReactRoot(props){
         if (props.model.ready) {
         return (
-                <div>
+                <div className="flexParent">
                     <div><Sidebar model={props.model} /></div>
                     <div>
                         <Summary model={props.model}/>
